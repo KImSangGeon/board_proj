@@ -10,13 +10,11 @@
 <title>MVC 게시판</title>
 <link rel="stylesheet"
 	href="<%-- <%=request.getContextPath()%> --%>/board_proj/board/css/list.css">
-	<style type="text/css">
 
-	</style>
 </head>
 <body>
 	<h2>게시판 목록</h2>
-	<section id = "list">
+	<section id="list">
 		<table>
 			<thead>
 				<tr>
@@ -31,8 +29,13 @@
 				<c:forEach var="board" items="${articleList }">
 					<tr>
 						<td>${board.board_num}</td>
-						<td>
-						<a href = "boardDetail.do?board_num=${board.board_num}&page=${pageInfo.page}">${board.board_subject}</a>
+						<td><c:if test="${board.board_re_lev ne 0 }">
+								<c:forEach var="i" begin="1" end="${board.board_re_lev *2}">
+										&nbsp;										
+									</c:forEach>
+									 ┖
+								</c:if> 
+								<a href="boardDetail.do?board_num=${board.board_num}&page=${pageInfo.page}">${board.board_subject}</a>
 						</td>
 						<td>${board.board_name}</td>
 						<td>${board.board_date}</td>

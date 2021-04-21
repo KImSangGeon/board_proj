@@ -1,0 +1,32 @@
+@charset "UTF-8";
+body{
+	text-align: center;
+}
+h2{
+		text-align: center;	
+}
+table{
+	margin: 0 auto;
+	border-collapse: collapse;
+	border-top: 2px solid #ff3030;
+	border-right: 2px solid gold;
+	border-bottom: 2px solid green;
+	border-left: 2px solid blue;
+	text-align: center;
+	
+}
+.td_left{
+	width:150px;	
+
+	border-right: 2px solid gold;
+	border:1px solid black;
+	background-color: #09a4f7
+}
+.td_right{
+	width: 300px;
+	border:  1px solid black;
+}
+#commandCell{
+	text-align: center;
+}
+

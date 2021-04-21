@@ -25,7 +25,7 @@ public class BoardListAction implements Action {
 		
 		ArrayList<BoardDTO> list = service.getArticleList(page, limit);
 		
-		list.stream().forEach(System.out::println);
+//		list.stream().forEach(System.out::println);
 		
 		
 		//총 리스트 개수

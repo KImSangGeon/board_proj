@@ -1,7 +1,6 @@
 @charset "UTF-8";
 	h2{ 
 	text-align: center;
-	border-bottom-color: orange;
 }
 section {
 	width: 80%;
@@ -38,6 +37,7 @@ thead td{
 	border-bottom: 2px solid green;
 	background-color: #09a4f7
 }	
+
 
 
 table td:nth-child(1){

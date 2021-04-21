@@ -116,10 +116,11 @@ public class BoardDTO {
 	@Override
 	public String toString() {
 		return String.format(
-				"board_name=%s, board_pass=%s, board_subject=%s, board_content=%s, board_file=%s,",
-				board_name, board_pass, board_subject, board_content, board_file);
+				"BoardDTO [board_num=%s, board_name=%s, board_pass=%s, board_subject=%s, board_content=%s, board_file=%s, board_re_ref=%s, board_re_lev=%s, board_re_seq=%s, board_readcount=%s, board_date=%s]",
+				board_num, board_name, board_pass, board_subject, board_content, board_file, board_re_ref, board_re_lev,
+				board_re_seq, board_readcount, board_date);
 	}
-	
+
 	
 
 }

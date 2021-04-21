@@ -1,0 +1,13 @@
+@charset "UTF-8";
+h2{
+	text-align: center;
+	margin: 0 auto;
+}
+table{
+	border-left: 2px solid blue;
+	border-right: 2px solid gold;
+	border-top: 2px solid red;
+	border-bottom: 2px solid green;
+	text-align: center;
+	margin: 0 auto;
+}
