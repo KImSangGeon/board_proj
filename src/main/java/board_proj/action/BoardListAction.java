@@ -13,7 +13,7 @@ import board_proj.service.BoardListService;
 public class BoardListAction implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response){
 		int page = 1;
 		int limit = 10;
 		
@@ -25,7 +25,7 @@ public class BoardListAction implements Action {
 		
 		ArrayList<BoardDTO> list = service.getArticleList(page, limit);
 		
-//		list.stream().forEach(System.out::println);
+		list.stream().forEach(System.out::println);
 		
 		
 		//총 리스트 개수

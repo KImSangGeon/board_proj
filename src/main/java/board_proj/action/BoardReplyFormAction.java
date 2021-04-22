@@ -10,7 +10,7 @@ import board_proj.service.BoardReplyService;
 public class BoardReplyFormAction implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 			int board_num = Integer.parseInt(request.getParameter("board_num"));
 			int page = Integer.parseInt(request.getParameter("page"));
 			
@@ -23,8 +23,7 @@ public class BoardReplyFormAction implements Action {
 			request.setAttribute("page", page);
 			
 			ActionForward forward = new ActionForward();
-			forward.setPath("/board/qna_board_reply.jsp");
-			
+			forward.setPath("/board/qna_board_reply.jsp");			
 		
 		return forward;
 	}

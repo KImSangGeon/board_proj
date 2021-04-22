@@ -10,7 +10,6 @@
 <title>MVC 게시판</title>
 <link rel="stylesheet"
 	href="<%-- <%=request.getContextPath()%> --%>/board_proj/board/css/list.css">
-
 </head>
 <body>
 	<h2>게시판 목록</h2>

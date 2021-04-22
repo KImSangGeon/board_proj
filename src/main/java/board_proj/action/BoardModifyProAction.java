@@ -14,7 +14,7 @@ import board_proj.service.BoardModifyProService;
 public class BoardModifyProAction implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response){
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
 		String pass = request.getParameter("board_pass");
 		String page = request.getParameter("page");		
@@ -28,7 +28,7 @@ public class BoardModifyProAction implements Action {
 	
 		boolean isArticleWriter = service.isArticleWriter(board_num, pass);
 		if(!isArticleWriter) {
-			getMessage(response, "삭제할 권한이 없습니다.");
+				SendMessage.sendMessage(response, "삭제할 권한이 없습니다.");
 			return foward;
 		}		
 		BoardDTO article = new BoardDTO();
@@ -42,7 +42,7 @@ public class BoardModifyProAction implements Action {
 		boolean isupdateSuccess = service.updateArticle(article);
 //		System.out.println(isupdateSuccess);
 		if(!isupdateSuccess) {
-				getMessage(response, "수정실패");
+					SendMessage.sendMessage(response, "수정실패");
 				return foward;
 			}		
 				foward = new ActionForward();
@@ -51,18 +51,5 @@ public class BoardModifyProAction implements Action {
 				
 		return foward;
 	}
-
-	private void getMessage(HttpServletResponse response, String msg) throws IOException {
-		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		out.println("<script>");
-		out.println("alert('"+ msg +"')");
-		out.println("history.back()");
-		out.println("</script>");
-		out.close();
-	}
-	
-	
-
 }
 

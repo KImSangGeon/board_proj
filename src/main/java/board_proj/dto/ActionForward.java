@@ -2,14 +2,15 @@ package board_proj.dto;
 
 public class ActionForward {
 	private String path;
-	private boolean Redirect;
-
+	private boolean redirect;
 	
-	public ActionForward() {}
+	public ActionForward() {
+		
+	}
 
 	public ActionForward(String path, boolean redirect) {
 		this.path = path;
-		this.Redirect = redirect;
+		this.redirect = redirect;
 		
 	}
 
@@ -22,11 +23,11 @@ public class ActionForward {
 	}
 
 	public boolean isRedirect() {
-		return Redirect;
+		return redirect;
 	}
 
 	public void setRedirect(boolean redirect) {
-	this.Redirect = redirect;
+	this.redirect = redirect;
 	}
 	
 	

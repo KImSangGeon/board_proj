@@ -1,6 +1,6 @@
 package board_proj.action;
 
-import java.io.PrintWriter;
+import java.io.IOException;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -16,49 +16,50 @@ import board_proj.service.BoardWriteService;
 public class BoardWriteProAction implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
-		
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
+	
 		String realFolder ="";
-		String saveFoleder = "/boardUpload";
-		int fileSize = 5 * 1024 *1024;  //5M
+		String saveFolder = "/boardUpload";
+		int fileSize = 5 * 1024 * 1024; //5M
+		
 		ServletContext context = request.getServletContext();
-		realFolder = context.getRealPath(saveFoleder);
-		MultipartRequest multi = new MultipartRequest(
-												request,
-												realFolder,
-												fileSize,
-												"UTF-8",
-												new DefaultFileRenamePolicy());
-		BoardDTO boardDTO = new BoardDTO();
-		boardDTO.setBoard_name(multi.getParameter("board_name"));
-		boardDTO.setBoard_pass(multi.getParameter("board_pass"));
-		boardDTO.setBoard_subject(multi.getParameter("board_subject"));
-		boardDTO.setBoard_content(multi.getParameter("board_content"));
-		boardDTO.setBoard_file(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));		
+		realFolder = context.getRealPath(saveFolder);
 		
-		//service
-		BoardWriteService service = new BoardWriteService();
-		boolean result = service.registerArticle(boardDTO);
-		
-		
+		MultipartRequest multi = null;
 		ActionForward forward = null;
-		if(result) {
-			forward = new ActionForward();
-			forward.setRedirect(true);
-			forward.setPath("boardList.do");
+		
+			try {
+				multi = new MultipartRequest(
+						request, 
+						realFolder, 
+						fileSize,
+						"UTF-8",
+						new DefaultFileRenamePolicy());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			BoardDTO boardDTO = new BoardDTO();
+			boardDTO.setBoard_name(multi.getParameter("board_name"));
+			boardDTO.setBoard_pass(multi.getParameter("board_pass"));
+			boardDTO.setBoard_subject(multi.getParameter("board_subject"));
+			boardDTO.setBoard_content(multi.getParameter("board_content"));
+			boardDTO.setBoard_file(multi.getOriginalFileName((String)multi.getFileNames().nextElement()));
+			System.out.println("realFolder >> " + realFolder);
+			System.out.println("boardDTO >> " + boardDTO);
 			
-		}else {
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('등록실패')");
-			out.println("history.back();");
-			out.println("</script>");
-		}		
-		
-		System.out.println("realFolder >>" + realFolder );
-		System.out.println("boardDTO >>" + boardDTO);
-		
+			// service
+			BoardWriteService service = new BoardWriteService();
+			boolean result = service.registerArticle(boardDTO);
+			
+			if (result) {
+				forward = new ActionForward("boardList.do", true);
+				
+				System.out.println(forward.getPath());
+			}else {
+				response.setContentType("text/html; charset=UTF-8");
+				SendMessage.sendMessage(response, "등록실패");
+			}
+			
 		return forward;
 	}
 

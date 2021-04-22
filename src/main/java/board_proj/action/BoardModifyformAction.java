@@ -10,8 +10,11 @@ import board_proj.service.BoardModifyService;
 public class BoardModifyformAction implements Action {
 
 	@Override
-	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response){
 //		board_num=81
+		String nowPage = request.getParameter("page");
+		request.setAttribute("page", nowPage);
+		
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
 		System.out.println("board_num >> " + board_num);
 		
