@@ -20,7 +20,7 @@ import board_proj.action.NullAction;
 import board_proj.dto.ActionForward;
 
 //모든 확장자가 do는 다 거쳐가야된다.
-//1.liadOn 1번쨰 수행하라고 명령 (필터 다음에,),
+//1.loadOn 1번쨰 수행하라고 명령 (필터 다음에,),
 //2.Param 설정해줘서 properties 작성 
 //이유 :속도가 빨라짐, 정리가 깔끔해져 용이함, 가독성 좋음
 
@@ -92,7 +92,7 @@ public class BoardFrontController extends HttpServlet {
 
 //		 	 String command = requstURI.substring(contextPath.length());
 //			 System.out.println(requstURI + " >> " + contextPath + " >> " + command);	
-		String comand = request.getServletPath();
+	
 
 
 //			command 는 key 값  
@@ -100,7 +100,7 @@ public class BoardFrontController extends HttpServlet {
 
 //			try 문 정리
 //			getTry(request, response, comand);
-
+		String comand = request.getServletPath();
 		System.out.println(comand);
 //		Key값
 		Action action = actionMap.get(comand);

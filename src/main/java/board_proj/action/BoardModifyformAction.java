@@ -12,11 +12,10 @@ public class BoardModifyformAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response){
 //		board_num=81
-		String nowPage = request.getParameter("page");
-		request.setAttribute("page", nowPage);
-		
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
-		System.out.println("board_num >> " + board_num);
+		String nowPage = request.getParameter("page");		
+	
+		System.out.println("board_num >> " + board_num + "nowPage >> " + nowPage);
 		
 		BoardModifyService service = new BoardModifyService();
 		
@@ -24,6 +23,8 @@ public class BoardModifyformAction implements Action {
 		System.out.println("article  >> " + article);
 		 
 		request.setAttribute("article", article);
+		request.setAttribute("page", nowPage);
+		
 		ActionForward forward = new ActionForward();
 		
 		forward.setPath("/board/qna_board_modify.jsp");

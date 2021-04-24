@@ -4,7 +4,6 @@ import java.sql.Connection;
 
 import board_proj.daoimpl.BoardDaoImpl;
 import board_proj.ds.jndiDS;
-import board_proj.dto.BoardDTO;
 
 public class BoardDeleteService {
 	

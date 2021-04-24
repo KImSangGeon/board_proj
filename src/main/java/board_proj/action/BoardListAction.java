@@ -16,7 +16,7 @@ public class BoardListAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response){
 		int page = 1;
 		int limit = 10;
-		
+		//페이지 파라미터 받아오기 
 		if(request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
@@ -25,13 +25,14 @@ public class BoardListAction implements Action {
 		
 		ArrayList<BoardDTO> list = service.getArticleList(page, limit);
 		
+		//작성 잘되고 있는지 리스트 확인
 		list.stream().forEach(System.out::println);
 		
 		
 		//총 리스트 개수
 		int listCount = service.getListCount();			
 		//마지막페이지
-		//21.0 /5 = 5
+		//21.0 /10 =
 		int maxPage = (int)Math.ceil((double)listCount/limit);
 		
 		

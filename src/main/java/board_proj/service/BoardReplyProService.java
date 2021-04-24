@@ -1,7 +1,6 @@
 package board_proj.service;
 
 import java.sql.Connection;
-import java.util.ArrayList;
 
 import board_proj.daoimpl.BoardDaoImpl;
 import board_proj.ds.jndiDS;

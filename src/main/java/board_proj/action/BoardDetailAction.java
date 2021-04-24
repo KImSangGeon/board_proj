@@ -15,7 +15,8 @@ public class BoardDetailAction implements Action {
 		int board_num = Integer.parseInt(request.getParameter("board_num"));
 		int page = Integer.parseInt(request.getParameter("page"));
 		
-		
+//		System.out.println("board_num >> " + board_num + "page >> " + page);
+	
 		BoardDetailService service = new BoardDetailService();
 		BoardDTO article = service.getArticle(board_num);
 		

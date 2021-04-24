@@ -42,7 +42,7 @@ public class BoardDaoImpl implements BoardDao {
 				+ " 	BOARD_FILE, BOARD_RE_REF, BOARD_RE_LEV, BOARD_RE_SEQ,"
 				+ " 	BOARD_READCOUNT, BOARD_DATE from board "
 				+ "	order by BOARD_RE_REF desc, BOARD_RE_SEQ asc" 
-				+	"	limit ?, ?";
+				+	"	limit ?, ?                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ";
 		int startRow = (page-1) * limit;   //해당 페이지 시작위치.
 		try(PreparedStatement pstmt = con.prepareStatement(sql)){
 			pstmt.setInt(1, startRow);
@@ -57,7 +57,6 @@ public class BoardDaoImpl implements BoardDao {
 				}
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
@@ -90,7 +89,6 @@ public class BoardDaoImpl implements BoardDao {
 			pstmt.setInt(1, board_num);
 			try(ResultSet rs = pstmt.executeQuery()){
 				if(rs.next()) {
-					BoardDTO list = new BoardDTO(board_num);
 					return getBoardDTO(rs);
 					
 					}
@@ -185,7 +183,7 @@ public class BoardDaoImpl implements BoardDao {
 	public int nextBoardNum() {
 		String sql = "select max(BOARD_NUM) from  board";
 		try(PreparedStatement pstmt = con.prepareStatement(sql);
-				ResultSet rs = pstmt.executeQuery();){
+				ResultSet rs = pstmt.executeQuery()){
 			if(rs.next()) {
 				return rs.getInt(1)+1;
 			}

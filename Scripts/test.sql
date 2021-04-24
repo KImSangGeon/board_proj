@@ -5,7 +5,7 @@ INSERT INTO web_gradle_erp.board
 VALUES(1, '김상건', '1111', '마칠시간', '5시', 'test.txt', 0, 0, 0, 0, '2021-03-03');
 
 select * from board;
-
+ 
 
 INSERT INTO board
 (BOARD_NUM, BOARD_NAME, BOARD_PASS, BOARD_SUBJECT, BOARD_CONTENT, BOARD_FILE, BOARD_RE_REF, )
@@ -63,4 +63,5 @@ INSERT INTO board
 (BOARD_NUM, BOARD_NAME, BOARD_PASS, BOARD_SUBJECT, BOARD_CONTENT, BOARD_FILE, 
 BOARD_RE_REF, BOARD_RE_LEV, BOARD_RE_SEQ)
 VALUES(1, '김상건', '1111', '마칠시간', '5시', 'test.txt', 0);
+
 

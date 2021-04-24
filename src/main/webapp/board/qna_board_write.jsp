@@ -5,7 +5,7 @@
 <head>
 		<meta charset="UTF-8">
 		<title>게시판 글쓰기</title>
-		<link rel = "stylesheet"  href ="/board_proj/board/css/style.css">
+		<link rel = "stylesheet"  href ="<%=request.getContextPath()%>/board/css/style.css">
 </head>
 <body>
 <%=request.getContextPath()%>

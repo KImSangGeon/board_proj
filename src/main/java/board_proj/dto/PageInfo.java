@@ -6,6 +6,7 @@ public class PageInfo {
 		private int startPage;
 		private int endPage;
 		private int listCount;
+		
 		public int getPage() {
 			return page;
 		}

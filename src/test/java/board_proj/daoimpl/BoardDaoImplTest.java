@@ -1,7 +1,5 @@
 package board_proj.daoimpl;
 
-import static org.junit.Assert.*;
-
 import java.sql.Connection;
 import java.util.ArrayList;
 
@@ -40,7 +38,7 @@ public class BoardDaoImplTest {
 		int res = dao.nextBoardNum();
 		Assert.assertNotEquals(0, res);
 		System.out.println("next Number >> " + res);
-	}	
+	}
 
 	@Test
 	public void test02SelectListCount() {

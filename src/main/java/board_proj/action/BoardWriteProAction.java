@@ -19,9 +19,9 @@ public class BoardWriteProAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) {
 	
 		String realFolder ="";
-		String saveFolder = "/boardUpload";
+		String saveFolder = "boardUpload";
 		int fileSize = 5 * 1024 * 1024; //5M
-		
+		//서블릿컨텍스트 사용할려면 request나 session 사용하기
 		ServletContext context = request.getServletContext();
 		realFolder = context.getRealPath(saveFolder);
 		
@@ -57,6 +57,7 @@ public class BoardWriteProAction implements Action {
 				System.out.println(forward.getPath());
 			}else {
 				response.setContentType("text/html; charset=UTF-8");
+				//센드 메세지는 스태틱 클래스로 미리 선언해둠.
 				SendMessage.sendMessage(response, "등록실패");
 			}
 			
