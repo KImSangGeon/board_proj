@@ -17,15 +17,12 @@ import board_proj.dto.BoardDTO;
 public class BoardDaoImplTest {
 		private static Connection con = JdbcUtil.getConnection();
 		private static BoardDaoImpl dao = BoardDaoImpl.getInstance();
-	@BeforeClass
+
+		@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		dao.setCon(con);
 	}
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		System.out.println();

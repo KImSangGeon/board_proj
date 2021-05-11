@@ -5,7 +5,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import board_proj.dao.BoardDao;
@@ -14,14 +13,14 @@ import board_proj.dto.BoardDTO;
 public class BoardDaoImpl implements BoardDao {
 	private static final BoardDaoImpl instance = new BoardDaoImpl();
 	private Connection con;
-	
-	public void setCon(Connection con) {
-		this.con = con;
-	}
+
 	public static BoardDaoImpl getInstance() {
 		return instance;
 	}
 	
+	public void setCon(Connection con) {
+		this.con = con;
+	}
 	@Override
 	public int selectListCount() {
 		String sql = "select count(*) from board";
